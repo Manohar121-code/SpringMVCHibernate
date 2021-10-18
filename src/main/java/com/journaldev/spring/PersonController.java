@@ -1,5 +1,7 @@
 package com.journaldev.spring;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,13 +17,14 @@ import com.journaldev.spring.service.PersonService;
 @Controller
 public class PersonController {
 	
+	@Autowired
 	private PersonService personService;
 	
-	@Autowired(required=true)
-	@Qualifier(value="personService")
-	public void setPersonService(PersonService ps){
-		this.personService = ps;
-	}
+//	@Autowired(required=true)
+//	@Qualifier(value="personService")
+//	public void setPersonService(PersonService ps){
+//		this.personService = ps;
+//	}
 	
 	@RequestMapping(value = "/persons", method = RequestMethod.GET)
 	public String listPersons(Model model) {
